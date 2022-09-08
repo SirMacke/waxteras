@@ -13,15 +13,15 @@
       <section id="right">
         <div class="content">
           <div>
-            <button @click="water = !water">On / Off</button>
+            <button @click="updateWater()">On / Off</button>
             <p>Vattna</p>
           </div>
           <div>
-            <button @click="lid = !lid">Open / Close</button>
+            <button @click="updateWater()">Open / Close</button>
             <p>Lock</p>
           </div>
           <div>
-            <button @click="fan = !fan">On / Off</button>
+            <button @click="updateWater()">On / Off</button>
             <p>Fläkt</p>
           </div>
         </div>
@@ -30,10 +30,38 @@
   </div>
 </template>
 
-<script setup>
-let water = false;
-let lid = false;
-let fan = false;
+<script>
+export default {
+  data() {
+    return {
+      water: false,
+      lid: false,
+      fan: false
+    }
+  },
+  mounted() {
+    this.socket = this.$nuxtSocket({
+      channel: '/'
+    })
+    /* Listen for events: */
+    this.socket
+    .on('someEvent', (msg, cb) => {
+      /* Handle event */
+    })
+  },
+  methods: {
+    updateWater() {
+      this.water = !this.water;
+      /* Emit events */
+      this.socket.emit('waterData', {
+        water: this.water
+      }, (resp) => {
+        /* Handle response, if any */
+        console.log(resp)
+      })
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>

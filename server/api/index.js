@@ -9,7 +9,7 @@ export default async () => {
     useUnifiedTopology: true
   });
   console.log("Connected to MongoDB");*/
-
+/*
   let io = require('socket.io')(http, {
     cors: {
       origin: `http://localhost:3000`,
@@ -28,5 +28,5 @@ export default async () => {
       console.log(e);
       io.emit('arduinoData', e);
     });
-  });
+  });*/
 };

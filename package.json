@@ -17,6 +17,7 @@
     "@nuxt/vite-builder": "^3.0.0-rc.9",
     "node-sass": "^7.0.2",
     "nuxt": "^3.0.0-rc.8",
+    "nuxt-socket-io": "^3.0.6",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
     "socket.io": "^4.5.2",

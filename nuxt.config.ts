@@ -79,5 +79,14 @@ export default defineNuxtConfig({
     splitChunks: {
       maxSize: 300000
     }
+  },
+  modules: [
+    'nuxt-socket-io',
+  ],
+  io: {
+    sockets: [{
+      name: 'main',
+      url: 'http://localhost:3000'
+    }]
   }
 });
