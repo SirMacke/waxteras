@@ -41,7 +41,7 @@ export default {
   },
   mounted() {
     this.socket = this.$nuxtSocket({
-      channel: '/'
+      channel: '/index'
     })
     /* Listen for events: */
     this.socket
