@@ -1,0 +1,24 @@
+{
+  "name": "waxteras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nuxt-modules/compression": "^0.1.0",
+    "@nuxt/vite-builder": "^3.0.0-rc.9",
+    "node-sass": "^7.0.2",
+    "nuxt": "^3.0.0-rc.8",
+    "sass": "^1.54.9",
+    "sass-loader": "^13.0.2",
+    "socket.io": "^4.5.2",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}
