@@ -36,28 +36,31 @@ export default {
     return {
       water: false,
       lid: false,
-      fan: false
+      fan: false,
+      message: ''
     }
   },
-  mounted() {
-    this.socket = this.$nuxtSocket({
-      channel: '/index'
-    })
-    /* Listen for events: */
-    this.socket
-    .on('waterData', (msg, cb) => {
-      /* Handle event */
-    })
-  },
+    mounted () {
+      this.socket = this.$nuxtSocket({ name: 'home', channel: '/index' })
+    },
+    methods: {
+      getMessage () {
+        return new Promise((resolve) => {
+          this.socket.emit('getMessage', { id: 'abc123' }, (resp) => {
+            this.messageRxd = resp
+            resolve()
+          })
+        })
+      }
+    }
   methods: {
-    async updateWater() {
-      console.log('water fn')
-      this.water = !this.water;
-      /* Emit events */
-      let res = await this.socket.emitP('waterData', {
-        water: this.water
-      });
-      console.log('res', res);
+    updateWater() {
+      return new Promise((resolve) => {
+        this.socket.emit('waterData', { water: this.water }, (resp) => {
+          this.message = resp
+          resolve()
+        })
+      })
     }
   }
 }
