@@ -85,8 +85,7 @@ export default defineNuxtConfig({
   ],
   io: {
     sockets: [{
-      name: 'main',
-      url: 'http://localhost:3000'
+      url: 'https://waxteras.herokuapp.com/'
     }]
   }
 });

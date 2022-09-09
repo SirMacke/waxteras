@@ -21,6 +21,7 @@
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
     "socket.io": "^4.5.2",
-    "vite-plugin-compression": "^0.5.1"
+    "vite-plugin-compression": "^0.5.1",
+    "vuex": "^4.0.2"
   }
 }

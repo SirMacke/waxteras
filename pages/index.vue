@@ -45,20 +45,19 @@ export default {
     })
     /* Listen for events: */
     this.socket
-    .on('someEvent', (msg, cb) => {
+    .on('waterData', (msg, cb) => {
       /* Handle event */
     })
   },
   methods: {
-    updateWater() {
+    async updateWater() {
+      console.log('water fn')
       this.water = !this.water;
       /* Emit events */
-      this.socket.emit('waterData', {
+      let res = await this.socket.emitP('waterData', {
         water: this.water
-      }, (resp) => {
-        /* Handle response, if any */
-        console.log(resp)
-      })
+      });
+      console.log('res', res);
     }
   }
 }
