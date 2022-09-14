@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <section id="hero">
       <div id="center">
         <h1>Oops! We encountered an issue</h1>

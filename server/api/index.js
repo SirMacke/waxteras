@@ -1,5 +1,4 @@
 //import mongoose from 'mongoose';
-import http from 'http';
 
 let dbUrl = '';
 

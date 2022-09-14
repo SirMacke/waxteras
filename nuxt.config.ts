@@ -80,13 +80,5 @@ export default defineNuxtConfig({
       maxSize: 300000
     }
   },
-  modules: [
-    'nuxt-socket-io',
-  ],
-  io: {
-    sockets: [{
-      name: 'home',
-      url: 'https://waxteras.herokuapp.com'
-    }]
-  }
+  modules: ['./modules/socket'],
 });

@@ -25,6 +25,7 @@
             <p>Fläkt</p>
           </div>
         </div>
+        {{ message }}
       </section>
     </main>
   </div>
@@ -37,31 +38,25 @@ export default {
       water: false,
       lid: false,
       fan: false,
-      message: ''
+      message: '123'
     }
   },
-    mounted () {
-      this.socket = this.$nuxtSocket({ name: 'home', channel: '/index' })
-    },
-    methods: {
-      getMessage () {
-        return new Promise((resolve) => {
-          this.socket.emit('getMessage', { id: 'abc123' }, (resp) => {
-            this.messageRxd = resp
-            resolve()
-          })
-        })
-      }
-    }
+  mounted () {
+    const { $socket } = useNuxtApp();
+    this.socket = $socket;
+    
+    this.socket.on('clientData', (data) => {
+      console.log(data);
+    });
+  },
   methods: {
-    updateWater() {
-      return new Promise((resolve) => {
-        this.socket.emit('waterData', { water: this.water }, (resp) => {
-          this.message = resp
-          resolve()
-        })
-      })
-    }
+    async updateWater() {
+      this.socket.emit("clientSettings", {
+        water: this.water,
+        lid: this.lid,
+        fan: this.fan
+      });
+    },
   }
 }
 </script>
