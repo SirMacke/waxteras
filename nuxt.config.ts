@@ -85,5 +85,8 @@ export default defineNuxtConfig({
       maxSize: 300000
     }
   },
+  publicRuntimeConfig: {
+    PORT: process.env.PORT || 3000
+  }
   //modules: ['./modules/socket'],
 });

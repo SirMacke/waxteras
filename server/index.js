@@ -15,7 +15,9 @@ export default async () => {
     //res.send('Socket.io server')
   });
 
-  server.listen(3001)
+  const config = useRuntimeConfig()
+  console.log(config.public.PORT)
+  server.listen(config.public.PORT + 1)
   const io = new Server(server, { cors: { origin: '*' }})
       
   io.on('connection', (socket) => {

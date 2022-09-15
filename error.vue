@@ -3,7 +3,6 @@
     <section id="hero">
       <div id="center">
         <h1>Oops! We encountered an issue</h1>
-        <p>Please report your issue through our <a href="/contact">contact</a> form.</p>
       </div>
     </section>
     <section id="bottom">
