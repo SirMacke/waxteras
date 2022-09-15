@@ -10,7 +10,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en'
       },
-      title: 'Wäxterås',
+      title: 'Wexterås',
       meta: [
         {
           name: 'viewport',
@@ -21,11 +21,11 @@ export default defineNuxtConfig({
         },
         {
           name: 'author',
-          content: 'Wäxterås'
+          content: 'Wexterås'
         },
         {
           name: 'application-name',
-          content: 'Wäxterås'
+          content: 'Wexterås'
         },
         {
           'http-equiv': 'X-UA-Compatible',
@@ -49,6 +49,11 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+  nitro: {
+    plugins: [
+      "~/server/index.js"
+    ]
   },
   render: {
     // HTTP2: https://nuxtjs.org/api/configuration-render/#http2
@@ -80,5 +85,5 @@ export default defineNuxtConfig({
       maxSize: 300000
     }
   },
-  modules: ['./modules/socket'],
+  //modules: ['./modules/socket'],
 });

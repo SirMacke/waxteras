@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="nav">
-      <h1>Wäxterås</h1>
+      <h1>Wexterås</h1>
     </div>
     <main>
       <section id="left">
@@ -13,15 +13,15 @@
       <section id="right">
         <div class="content">
           <div>
-            <button @click="updateWater()">On / Off</button>
+            <button @click="updateSettings('water')">On / Off</button>
             <p>Vattna</p>
           </div>
           <div>
-            <button @click="updateWater()">Open / Close</button>
+            <button @click="updateSettings('lid')">Open / Close</button>
             <p>Lock</p>
           </div>
           <div>
-            <button @click="updateWater()">On / Off</button>
+            <button @click="updateSettings('fan')">On / Off</button>
             <p>Fläkt</p>
           </div>
         </div>
@@ -50,7 +50,11 @@ export default {
     });
   },
   methods: {
-    async updateWater() {
+    async updateSettings(toChange) {
+      if (toChange == 'water') this.water = !this.water;
+      else if (toChange == 'lid') this.lid = !this.lid;
+      else if (toChange == 'fan') this.fan = !this.fan;
+      
       this.socket.emit("clientSettings", {
         water: this.water,
         lid: this.lid,
