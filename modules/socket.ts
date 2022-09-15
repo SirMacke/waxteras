@@ -10,18 +10,18 @@ export default defineNuxtModule({
       const io = new Server(server)
 
       nuxt.hook('close', () => io.close())
-      
+
       io.on('connection', (socket) => {
         console.log('Connection', socket.id)
         //socket.emit('message', `welcome ${socket.id}`)
         //socket.broadcast.emit('message', `${socket.id} joined`)
 
-        socket.on('clientSettings', (data: any) => {
+        socket.on('clientSettings', (data) => {
           console.log('clientSettings received: %s', data)
           io.emit('arduinoSettings', data)
         })
 
-        socket.on('arduinoData', (data: any) => {
+        socket.on('arduinoData', (data) => {
           console.log('arduinoData received: %s', data)
           io.emit('clientData', data)
         })

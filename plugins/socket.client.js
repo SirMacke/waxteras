@@ -3,7 +3,9 @@ import io from 'socket.io-client'
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   console.log(config.public.PORT)
-  const socket = io(`http://localhost:${config.public.PORT + 1}`)
+  //let uri;
+  //if (config.public.production) uri = 'waxteras.herokuapp.com'
+  const socket = io(`http://localhost:3000`)
   console.log(socket)
   //const socket = io('https://waxteras.herokuapp.com')
 
