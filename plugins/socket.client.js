@@ -7,7 +7,7 @@ export default defineNuxtPlugin(() => {
   //if (config.public.production) uri = 'waxteras.herokuapp.com'
   //const socket = io(`http://localhost:3000`)
   //console.log(socket)
-  const socket = io('http://waxteras.herokuapp.com')
+  const socket = io('http://waxteras-server.herokuapp.com')
 
   return {
     provide: {
